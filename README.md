@@ -69,9 +69,6 @@ Evaluate with evaluate_model()
 Use interactive_typing() to type and see predictions live
 
 *Example Output*
-bash
-Copy
-Edit
 Type: Artificial Intelligence is chang
 Predicted next character: i (Confidence: 0.82)
 *Author*
