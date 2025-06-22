@@ -220,7 +220,7 @@ def prepare_wikipedia_dataset():
     """
     Downloads Wikipedia dataset and prepares text data for FastText training.
     """
-    print("📥 Downloading Wikipedia dataset...")
+    print(" Downloading Wikipedia dataset...")
     dataset = load_dataset("wikipedia", "20220301.en", split="train", trust_remote_code=True)
 
     wiki_texts = [item["text"] for item in dataset.select(range(100000))]  # Use 100K samples
@@ -236,7 +236,7 @@ def train_fasttext():
     """
     Trains a character-level FastText model on Wikipedia text.
     """
-    print("🚀 Training FastText model...")
+    print(" Training FastText model...")
     model_ft = fasttext.train_supervised(
         input="/content/wiki_text.txt",
         epoch=50,  # More training for better accuracy
@@ -255,14 +255,14 @@ def load_models():
     """
     Loads FastText and GPT-2 models for hybrid next-character prediction.
     """
-    print("📥 Loading models...")
+    print(" Loading models...")
     model_ft = fasttext.load_model("/content/fasttext_wikipedia.bin")
 
     tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
     model_gpt2 = GPT2LMHeadModel.from_pretrained("gpt2")
     model_gpt2.eval()
 
-    print("✅ Models loaded!")
+    print(" Models loaded!")
     return model_ft, tokenizer, model_gpt2
 
 # Step 4: Hybrid Prediction (FastText + GPT-2)
@@ -324,9 +324,9 @@ def evaluate_model(model_ft, tokenizer, model_gpt2):
     average_latency = total_time / total_samples
 
     print("\n=== Model Performance Metrics ===")
-    print(f"🔥 Top-1 Accuracy: {top1_accuracy:.2f}%")
-    print(f"🔥 Top-3 Accuracy: {top3_accuracy:.2f}%")
-    print(f"⚡ Average Prediction Time: {average_latency:.5f} seconds")
+    print(f" Top-1 Accuracy: {top1_accuracy:.2f}%")
+    print(f" Top-3 Accuracy: {top3_accuracy:.2f}%")
+    print(f" Average Prediction Time: {average_latency:.5f} seconds")
 
 # Step 6: Interactive Typing with Real-Time Predictions
 def interactive_typing(model_ft, tokenizer, model_gpt2):
