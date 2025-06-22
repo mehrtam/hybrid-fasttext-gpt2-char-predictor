@@ -44,3 +44,38 @@ Install all required libraries using:
 
 ```bash
 pip install fasttext torch transformers datasets
+📁 Files and Structure
+shakespeare.txt: Shakespeare dataset from Project Gutenberg
+
+char_dataset_smart.txt: Preprocessed FastText training data
+
+fasttext_shakespeare_quantized.ftz: Trained FastText model
+
+wiki_text.txt: Extracted Wikipedia text (100K articles)
+
+GPT-2: Automatically loaded from Hugging Face (gpt2)
+
+🚀 How to Run
+Mount Google Drive (if using Colab)
+
+Run prepare_wikipedia_dataset() to create training text
+
+Run train_fasttext() to train or fine-tune FastText
+
+Load both models with load_models()
+
+Evaluate with evaluate_model()
+
+Use interactive_typing() to type and see predictions live
+
+*Example Output*
+bash
+Copy
+Edit
+Type: Artificial Intelligence is chang
+Predicted next character: i (Confidence: 0.82)
+*Author*
+Developed by Fateme Eslami as part of an AI/NLP portfolio project during the MSc in Artificial Intelligence at the University of Birmingham.
+
+
+
